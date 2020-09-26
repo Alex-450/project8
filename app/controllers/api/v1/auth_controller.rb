@@ -1,6 +1,7 @@
 class Api::V1::AuthController < ApplicationController
 
-    skip_before_action :verify_authenticity_token
+    # skip_before_action :verify_authenticity_token
+    # skip_before_action :require_login, only: [:login, :auto_login]
     
     def login
         user = User.find_by(email: params[:email])
@@ -11,7 +12,8 @@ class Api::V1::AuthController < ApplicationController
                 user: user, jwt: token
             }
         else
-            render json: { failure: "log in failed - invalid email or password" }
+            render json: { failure: "log in failed - invalid email or password" },
+            status: :unauthorized
         end
     end
 

@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
         !!session_user
     end
 
-    def require_login
-        render json: {message: 'Please login'}, status: :unauthorized unless logged_in?
-    end
+    # def require_login
+    #     redirect_to root, status: :unauthorized unless logged_in?
+    # end
 end
