@@ -71,3 +71,7 @@
 .form_control {
   border: none !important;
 }
+
+#mapid {
+  height: 80vh;
+}

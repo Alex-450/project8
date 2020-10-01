@@ -9,7 +9,7 @@ class Api::V1::AuthController < ApplicationController
             payload = {user_id: user.id}
             token = encode_token(payload)
             render json: {
-                user: user, jwt: token
+                user: user.first_name, jwt: token
             }
         else
             render json: { failure: "log in failed - invalid email or password" },

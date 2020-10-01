@@ -12,7 +12,7 @@ function SignUpForm(props) {
 
   const handleLogin = (user) => {
     setUser(user);
-    if (user) return props.history.push("/home");
+    if (user) return props.history.push("/uploadid");
   };
 
   const handleSubmit = (event) => {
@@ -62,7 +62,6 @@ function SignUpForm(props) {
                 onChange={(event) => setFirstName(event.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group>
               <Form.Label>Last Name</Form.Label>
               <Form.Control
@@ -75,7 +74,6 @@ function SignUpForm(props) {
                 onChange={(event) => setLastName(event.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group>
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -88,7 +86,6 @@ function SignUpForm(props) {
                 onChange={(event) => setEmail(event.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group>
               <Form.Label>Password</Form.Label>
               <Form.Control
@@ -101,7 +98,6 @@ function SignUpForm(props) {
                 onChange={(event) => setPassword(event.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group>
               <Form.Label>Confirm password</Form.Label>
               <Form.Control
@@ -117,12 +113,7 @@ function SignUpForm(props) {
               ></Form.Control>
             </Form.Group>
             <Row className="justify-content-center">
-              <Button
-                className="form_button"
-                name="sign up"
-                type="submit"
-                name="Sign Up"
-              >
+              <Button className="form_button" type="submit" name="Sign Up">
                 Sign up →
               </Button>
             </Row>
