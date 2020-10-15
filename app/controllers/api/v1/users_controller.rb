@@ -15,15 +15,15 @@ class Api::V1::UsersController < ApplicationController
             render json: { errors: user.errors.full_messages },
             status: :bad_request
         end
-        
       end
-    # POST /users
+      
+    # GET /users
 
     def show
-        render json: user, status: :ok
+        render json: User.find(params[:id]), status: :ok
     end
 
-    # PUT /users/email
+    # PUT /users
 
     def update
         unless user.update(user_params)
@@ -32,7 +32,7 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
-    #  DELETE /users/email
+    #  DELETE /users
 
     def destroy
         user.destroy

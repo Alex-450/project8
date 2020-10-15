@@ -54,6 +54,7 @@ function SignUpForm(props) {
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 className="form_control"
+                id="signup_form_control"
                 type="text"
                 placeholder="e.g. Alex"
                 name="first_name"
@@ -66,6 +67,7 @@ function SignUpForm(props) {
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 className="form_control"
+                id="signup_form_control"
                 type="text"
                 placeholder="e.g. Smith"
                 name="last_name"
@@ -78,6 +80,7 @@ function SignUpForm(props) {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 className="form_control"
+                id="signup_form_control"
                 type="email"
                 placeholder="e.g. alex.smith@email.com"
                 name="email"
@@ -90,6 +93,7 @@ function SignUpForm(props) {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 className="form_control"
+                id="signup_form_control"
                 type="password"
                 name="password"
                 required
@@ -102,6 +106,7 @@ function SignUpForm(props) {
               <Form.Label>Confirm password</Form.Label>
               <Form.Control
                 className="form_control"
+                id="signup_form_control"
                 type="password"
                 name="password_confirmation"
                 required

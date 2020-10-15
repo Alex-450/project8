@@ -7,4 +7,15 @@ class User < ApplicationRecord
     before_save { self.email = email.downcase }
 
     has_secure_password
+
+    # user can have many help requests
+    has_many :help_requests, dependent: :destroy
+
+    # validation for all fields
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    validates :email, presence: true
+    validates :password, presence: true
+    validates :password_confirmation, presence: true
+
 end

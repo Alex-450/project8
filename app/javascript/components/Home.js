@@ -1,25 +1,37 @@
-import React, { useState, useEffect } from "react";
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import { Button } from "react-bootstrap";
+import React, { useState, useEffect, setState } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import GetLocationHook from "../hooks/GetLocationHook";
+import HelpRequestForm from "./HelpRequestForm";
+import HelpRequest from "./HelpRequest.js";
+import RequestMap from "./RequestMap";
 
-const Home = (props) => {
+function Home() {
   const { lat, long, error } = GetLocationHook();
-  return (
-    <div>
-      <h1>Welcome - you have successfully logged in!</h1>
+  // const { showOrForm, setShowOrForm } = setState("check");
 
-      <Map center={[lat, long]} zoom={11} id="mapid">
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker key={lat} position={[lat, long]}>
-          <Popup>Your location</Popup>
-        </Marker>
-      </Map>
-    </div>
+  const showOrForm = "check";
+
+  // TODO Switch statement here for user submitting / viewing request
+
+  return (
+    <Container fluid>
+      <Row>
+        <Col>
+          <RequestMap />
+        </Col>
+        <Col>
+          {(() => {
+            switch (showOrForm) {
+              case "help_request_show":
+                return <HelpRequest />;
+              default:
+                return <HelpRequestForm lat={lat} long={long} />;
+            }
+          })()}
+        </Col>
+      </Row>
+    </Container>
   );
-};
+}
 
 export default Home;

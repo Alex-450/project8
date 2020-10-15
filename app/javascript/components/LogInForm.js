@@ -50,6 +50,7 @@ function LoginForm(props) {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 className="form_control"
+                id="signup_form_control"
                 type="email"
                 name="email"
                 required
@@ -63,6 +64,7 @@ function LoginForm(props) {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 className="form_control"
+                id="signup_form_control"
                 type="password"
                 name="password"
                 required
