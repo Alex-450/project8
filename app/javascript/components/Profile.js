@@ -1,16 +1,16 @@
-import React from "react";
-import GetUserProfile from "../hooks/GetUserProfileHook";
+import React, { useContext } from "react";
+import { UserContext } from "./Context/UserContext";
 
-const Profile = (props) => {
-  const { user, error, isLoaded } = GetUserProfile();
+function Profile(props) {
+  const { userData } = useContext(UserContext);
   return (
     <div>
-      <p>{user.id}</p>
-      <p>{user.first_name}</p>
-      <p>{user.last_name}</p>
-      <p>{user.email}</p>
+      <p>{userData.id}</p>
+      <p>{userData.first_name}</p>
+      <p>{userData.last_name}</p>
+      <p>{userData.email}</p>
     </div>
   );
-};
+}
 
 export default Profile;

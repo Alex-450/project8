@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "./Context/UserContext";
 import { Container, Form, Row, Button } from "react-bootstrap";
 import GetRequestTypes from "../hooks/GetRequestTypesHook";
 
@@ -7,6 +8,7 @@ function HelpRequestForm(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [request_type_id, setRequestType] = useState("");
+  const { userData } = useContext(UserContext);
 
   const { requestTypes } = GetRequestTypes();
 
@@ -14,7 +16,7 @@ function HelpRequestForm(props) {
 
   const latitude = props.lat.toString();
   const longitude = props.long.toString();
-  const user_id = "1";
+  const user_id = userData.id;
 
   const submitHelpRequest = (event) => {
     event.preventDefault();

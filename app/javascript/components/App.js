@@ -1,4 +1,4 @@
-import React, { Component, useState, useContext } from "react";
+import React, { Component, useState, useMemo } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import LoginForm from "./LoginForm";
@@ -7,20 +7,18 @@ import UploadID from "./UploadID";
 import Home from "./Home.js";
 import Profile from "./Profile.js";
 import Navbar from "./Navbar";
-import Store, { UserContext } from "./Store";
+import { UserContext } from "./Context/UserContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/App.css";
 import { useHistory, Redirect } from "react-router-dom";
 
 function App() {
-  // const [userInfo, setUserInfo] = useState({});
-  // const [user, setUser] = useState({});
-  // const [user, setUser] = useContext(UserContext);
-
-  // const handleLogin = (user) => {
-  //   setUser(user);
-  //   if (user) return props.history.push("/home");
-  // };
+  const localState = JSON.parse(localStorage.getItem("user"));
+  const [userData, setUserData] = useState(localState || null);
+  const value = useMemo(() => ({ userData, setUserData }), [
+    userData,
+    setUserData,
+  ]);
 
   // Check if user is authed
 
@@ -62,19 +60,19 @@ function App() {
   );
 
   return (
-    // <Store>
     <BrowserRouter>
       {userAuthed && <Navbar />}
       <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <AuthenticatedRoute exact path="/home" component={Home} />
-        <Route exact path="/signup" component={SignUpForm} />
-        <Route exact path="/login" component={LoginForm} />
-        <AuthenticatedRoute exact path="/profile" component={Profile} />
-        <AuthenticatedRoute exact path="/uploadid" component={UploadID} />
+        <UserContext.Provider value={value}>
+          <Route exact path="/" component={LandingPage} />
+          <AuthenticatedRoute exact path="/home" component={Home} />
+          <Route exact path="/signup" component={SignUpForm} />
+          <Route exact path="/login" component={LoginForm} />
+          <AuthenticatedRoute exact path="/profile" component={Profile} />
+          <AuthenticatedRoute exact path="/uploadid" component={UploadID} />
+        </UserContext.Provider>
       </Switch>
     </BrowserRouter>
-    // </Store>
   );
 }
 

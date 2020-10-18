@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "./Context/UserContext";
 import { Container, Jumbotron, Form, Row, Button } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 
 function LoginForm(props) {
+  const { userData, setUserData } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
+
+  // const [user, setUser] = useState({});
 
   const handleLogin = (user) => {
-    setUser(user);
+    // setUser(user);
     console.log(user);
-    if (user) return props.history.push("/home");
+    setUserData(user);
+    if (user) return setUserData(user), props.history.push("/home");
   };
 
   const handleSubmit = (event) => {
@@ -35,8 +39,8 @@ function LoginForm(props) {
       .then((resp) => resp.json())
       .then((data) => {
         localStorage.setItem("token", data.jwt);
-
-        handleLogin(data.user);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        handleLogin(JSON.stringify(data.user));
       });
     setEmail("");
     setPassword("");
