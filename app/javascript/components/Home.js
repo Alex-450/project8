@@ -1,25 +1,54 @@
-import React, { useState, useEffect, setState, useContext } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import GetLocationHook from "../hooks/GetLocationHook";
 import HelpRequestForm from "./HelpRequestForm";
 import HelpRequest from "./HelpRequest.js";
 import RequestMap from "./RequestMap";
-import { UserContext } from "./Context/UserContext";
+import MapError from "./MapError";
+import HelpRequestExplainer from "./HelpRequestExplainer";
+import GetHelpRequests from "../hooks/GetHelpRequestsHook";
 
 function Home() {
-  const { lat, long, error } = GetLocationHook();
-  const { userData } = useContext(UserContext);
-  const [showOrForm, setShowOrForm] = useState("help_request_show");
+  const [showOrForm, setShowOrForm] = useState("");
+  const [selectedRequest, setSelectedRequest] = useState("");
+  const { helpRequests } = GetHelpRequests();
+  const [long, setLong] = useState("");
+  const [lat, setLat] = useState("");
 
-  // TODO Switch statement here for user submitting / viewing request
+  const totalHelpRequests = helpRequests.length;
 
   return (
-    <Container fluid>
+    <Container fluid className="home_container">
+      <Row>
+        {lat && long && (
+          <div>
+            <div className="request_counter">
+              <p className="request_counter_para">
+                {helpRequests.length != "0" && totalHelpRequests}
+              </p>
+            </div>
+            <div className="request_counter_explainer_container">
+              <p className="request_explainer">Current total requests</p>
+            </div>
+          </div>
+        )}
+      </Row>
       <Row>
         <Col>
-          <RequestMap showOrForm={showOrForm} setShowOrForm={setShowOrForm} />
+          {lat && long ? (
+            <RequestMap
+              showOrForm={showOrForm}
+              setShowOrForm={setShowOrForm}
+              setSelectedRequest={setSelectedRequest}
+              helpRequests={helpRequests}
+              lat={lat}
+              long={long}
+            />
+          ) : (
+            <MapError setLat={setLat} setLong={setLong} />
+          )}
         </Col>
-        <Col>
+        <Col className="help_request_container">
           {(() => {
             switch (showOrForm) {
               case "help_request_show":
@@ -27,12 +56,18 @@ function Home() {
                   <HelpRequest
                     showOrForm={showOrForm}
                     setShowOrForm={setShowOrForm}
+                    selectedRequest={selectedRequest}
                   />
                 );
               case "help_request_form_show":
                 return <HelpRequestForm lat={lat} long={long} />;
               default:
-                return <HelpRequestForm lat={lat} long={long} />;
+                return (
+                  <HelpRequestExplainer
+                    setShowOrForm={setShowOrForm}
+                    helpRequests={helpRequests}
+                  />
+                );
             }
           })()}
         </Col>

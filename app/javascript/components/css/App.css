@@ -8,20 +8,21 @@
 }
 
 .landing_jumbotron {
-  background-color: #ed8383;
+  background-color: #ec9999;
   border-radius: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .landing_header {
-  color: #707070;
-  background-color: white;
+  color: white;
   padding: 10px;
   border-radius: 5px;
 }
 
 .landing_button {
-  color: #707070;
-  background-color: white;
+  color: white;
+  background-color: #ec9999;
   border: none;
   height: 100%;
   width: 100%;
@@ -29,11 +30,41 @@
 }
 
 .landing_button:hover {
-  background-color: #5f4040;
+  background-color: #ec9999;
 }
 
 .landing_button:active {
   background-color: #5f4040;
+}
+
+.navbar_nav_link {
+  color: black !important;
+  padding: 10px;
+}
+
+.navbar_nav_link:active {
+  color: white;
+  background-color: #ed8383;
+}
+
+.navbar_logout_button {
+  color: white !important;
+  background-color: #ec9999;
+  justify-content: end;
+  border-radius: 20px;
+}
+
+.home_container {
+  background-color: #ec9999;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.help_request_container {
+  background-color: white;
+  border-radius: 10px;
+  height: 50vh;
 }
 
 .form_container {
@@ -68,13 +99,19 @@
   background-color: #5f4040;
 }
 
+.button_arrow {
+  color: #ed8383;
+  background-color: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
 #signup_form_control {
   border: none !important;
 }
 
 #mapid {
-  height: 80vh;
-  /* width: 50vw; */
+  height: 50vh;
 }
 
 .help_request_form_button {
@@ -87,4 +124,75 @@
 .help_request_form_button:hover {
   background-color: #e46767;
   border: none;
+}
+
+.big_button {
+  background-color: #ec9999;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+}
+
+.big_button:hover {
+  background-color: #5f4040;
+}
+
+.request_counter {
+  background-color: #ec9999;
+  border-radius: 50%;
+  color: white;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  position: relative;
+}
+
+.request_counter_para {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.map_button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ec9999;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+}
+
+.map_button:hover {
+  background-color: #9c6a6a;
+}
+
+.map_button:active {
+  background-color: #5f4040;
+}
+
+.map_button_background {
+  height: 50vh;
+  background-color: #5f4040;
+  position: relative;
+}
+
+.help_request_container {
+  height: 60vh;
+}
+
+.request_counter_explainer_container {
+  text-align: center;
+  height: 50px;
+}
+
+.request_explainer {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 50px;
+  margin-left: 2px;
 }

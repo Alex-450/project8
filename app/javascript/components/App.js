@@ -13,7 +13,13 @@ import "./css/App.css";
 import { useHistory, Redirect } from "react-router-dom";
 
 function App() {
-  const localState = JSON.parse(localStorage.getItem("user"));
+  var localState = null;
+
+  if (localStorage.getItem("user") === undefined) {
+    localState = null;
+  } else {
+    localState = JSON.parse(localStorage.getItem("user"));
+  }
   const [userData, setUserData] = useState(localState || null);
   const value = useMemo(() => ({ userData, setUserData }), [
     userData,
@@ -50,7 +56,7 @@ function App() {
         ) : (
           <Redirect
             to={{
-              pathname: "/",
+              pathname: "/welcome",
               state: { from: props.location },
             }}
           />
@@ -64,8 +70,8 @@ function App() {
       {userAuthed && <Navbar />}
       <Switch>
         <UserContext.Provider value={value}>
-          <Route exact path="/" component={LandingPage} />
-          <AuthenticatedRoute exact path="/home" component={Home} />
+          <Route exact path="/welcome" component={LandingPage} />
+          <AuthenticatedRoute exact path="/" component={Home} />
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={LoginForm} />
           <AuthenticatedRoute exact path="/profile" component={Profile} />

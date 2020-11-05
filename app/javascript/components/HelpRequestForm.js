@@ -93,7 +93,7 @@ function HelpRequestForm(props) {
           type="submit"
           name="Submit help request"
         >
-          Submit help request →
+          Submit help request <span className="button_arrow">→</span>
         </Button>
       </Form>
     </Container>

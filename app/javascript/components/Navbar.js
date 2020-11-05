@@ -1,6 +1,6 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
-import { withRouter } from "react-router-dom";
+import { Navbar, Nav, Row, Col } from "react-bootstrap";
+import { withRouter, NavLink } from "react-router-dom";
 
 function NavBar(props) {
   const handleLogOut = () => {
@@ -19,17 +19,52 @@ function NavBar(props) {
 
   return (
     <div>
-      <Navbar expand="lg">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="justify-content-center">
-            <Nav.Link href="/home">Home</Nav.Link>
-            {!userAuthed && <Nav.Link href="/signup">Signup</Nav.Link>}
-            {userAuthed && <Nav.Link href="/profile">Profile</Nav.Link>}
-            {userAuthed && <Nav.Link onClick={handleLogOut}>Log out</Nav.Link>}
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <Row>
+        <Col>
+          <Navbar expand="lg" className="navbar_top">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="justify-content-center">
+                <NavLink
+                  className="navbar_nav_link"
+                  activeClassName="navbar_nav_link_active"
+                  to="/"
+                  exact={true}
+                >
+                  Home
+                </NavLink>
+                {!userAuthed && (
+                  <NavLink className="navbar_nav_link" to="/signup">
+                    Signup
+                  </NavLink>
+                )}
+                {userAuthed && (
+                  <NavLink className="navbar_nav_link" to="/profile">
+                    Profile
+                  </NavLink>
+                )}
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        </Col>
+        <Col>
+          <Navbar>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ml-auto">
+                {userAuthed && (
+                  <Nav.Link
+                    className="navbar_logout_button"
+                    onClick={handleLogOut}
+                  >
+                    Log out
+                  </Nav.Link>
+                )}
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        </Col>
+      </Row>
     </div>
   );
 }

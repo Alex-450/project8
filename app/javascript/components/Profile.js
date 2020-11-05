@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "./Context/UserContext";
 
-function Profile(props) {
+function Profile() {
   const { userData } = useContext(UserContext);
   return (
     <div>

@@ -11,10 +11,8 @@ function LoginForm(props) {
   // const [user, setUser] = useState({});
 
   const handleLogin = (user) => {
-    // setUser(user);
-    console.log(user);
     setUserData(user);
-    if (user) return setUserData(user), props.history.push("/home");
+    if (user) return setUserData(user), props.history.push("/");
   };
 
   const handleSubmit = (event) => {

@@ -9,16 +9,14 @@ const LandingPage = () => (
           <h1 className="landing_header">Local aid</h1>
         </Row>
         <Row className="m-4">
-          <Col className="align-text-center">
-            <Button className="landing_button" href="/signup">
-              Sign up →
-            </Button>
-          </Col>
-          <Col>
-            <Button className="landing_button" href="/login">
-              Log in <br></br> →
-            </Button>
-          </Col>
+          <Button className="landing_button" href="/signup">
+            Sign up <span className="button_arrow">→</span>
+          </Button>
+        </Row>
+        <Row>
+          <Button className="landing_button" href="/login">
+            Log in <span className="button_arrow">→</span>
+          </Button>
         </Row>
       </Jumbotron>
     </Container>
