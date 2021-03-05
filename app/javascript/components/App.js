@@ -13,6 +13,7 @@ import "./css/App.css";
 import { useHistory, Redirect } from "react-router-dom";
 
 function App() {
+  // const localState = JSON.parse(localStorage.getItem("user"));
   var localState = null;
 
   if (localStorage.getItem("user") === undefined) {

@@ -40,6 +40,7 @@ function SignUpForm(props) {
       .then((resp) => resp.json())
       .then((data) => {
         localStorage.setItem("token", data.jwt);
+        localStorage.setItem("user", JSON.stringify(data.user));
         handleLogin(data.user);
       });
     setEmail("");
