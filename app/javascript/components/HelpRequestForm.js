@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "./Context/UserContext";
-import { Container, Form, Row, Button } from "react-bootstrap";
+import { Container, Form, Row, Button, Col } from "react-bootstrap";
 import GetRequestTypes from "../hooks/GetRequestTypesHook";
 
 function HelpRequestForm(props) {
@@ -59,16 +59,20 @@ function HelpRequestForm(props) {
           ></Form.Control>
         </Form.Group>
         <Form.Group>
-          <Form.Label>Description</Form.Label>
+          <Form.Label>Description (max 300 characters)</Form.Label>
           <Form.Control
             className="form_control"
             as="textarea"
+            maxLength="300"
             placeholder="e.g. I need someone to paint my wall..."
             name="description"
             value={description}
             required
             onChange={(event) => setDescription(event.target.value)}
           ></Form.Control>
+          <Form.Text className="text-muted">
+            characters remaining: {300 - description.length}
+          </Form.Text>
         </Form.Group>
         <Form.Group>
           <Form.Label>Request Type</Form.Label>
