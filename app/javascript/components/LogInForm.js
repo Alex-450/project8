@@ -1,22 +1,33 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "./Context/UserContext";
-import { Container, Jumbotron, Form, Row, Button } from "react-bootstrap";
+import { Container, Jumbotron, Form, Row, Button, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
+// import login from "./Services/authentication";
 
 function LoginForm(props) {
   const { userData, setUserData } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // const [user, setUser] = useState({});
+  const [isloading, setIsLoading] = useState("");
+  const [error, setError] = useState("");
+  const [user, setUser] = useState({});
 
   const handleLogin = (user) => {
     setUserData(user);
     if (user) return setUserData(user), props.history.push("/");
   };
 
+  function handleErrors(response) {
+    if (!response.ok) {
+      setError(response.statusText);
+      throw Error(response.statusText);
+    }
+    return response;
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     const csrf = document
       .querySelector("meta[name='csrf-token']")
@@ -34,6 +45,8 @@ function LoginForm(props) {
         password,
       }),
     })
+      .then(setIsLoading(false))
+      .then(handleErrors)
       .then((resp) => resp.json())
       .then((data) => {
         localStorage.setItem("token", data.jwt);
@@ -84,6 +97,11 @@ function LoginForm(props) {
                 Log in →
               </Button>
             </Row>
+            {error && (
+              <Row>
+                <Col>{error}</Col>
+              </Row>
+            )}
           </Form>
         </Row>
       </Jumbotron>

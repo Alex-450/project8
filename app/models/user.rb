@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
     has_secure_password
 
+    has_one_attached: :id
+
     # user can have many help requests
     has_many :help_requests, dependent: :destroy
 

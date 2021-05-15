@@ -117,6 +117,9 @@ function SignUpForm(props) {
                   setPasswordConfirmation(event.target.value)
                 }
               ></Form.Control>
+              <Form.Group>
+                <Form.File label="Upload ID" accept=".pdf, .jpeg, .png" />
+              </Form.Group>
             </Form.Group>
             <Row className="justify-content-center">
               <Button className="form_button" type="submit" name="Sign Up">
