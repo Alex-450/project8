@@ -8,11 +8,16 @@ function SignUpForm(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
+  const [id_document, setIdDocument] = useState(null);
   const [user, setUser] = useState({});
 
   const handleLogin = (user) => {
     setUser(user);
-    if (user) return props.history.push("/uploadid");
+    if (user) return props.history.push("/");
+  };
+
+  const handleFileUpload = (event) => {
+    setIdDocument(event.target.files[0]);
   };
 
   const handleSubmit = (event) => {
@@ -22,20 +27,23 @@ function SignUpForm(props) {
       .querySelector("meta[name='csrf-token']")
       .getAttribute("content");
 
+    const formData = new FormData();
+
+    formData.append("first_name", first_name),
+      formData.append("last_name", last_name),
+      formData.append("email", email),
+      formData.append("password", password),
+      formData.append("password_confirmation", password_confirmation),
+      formData.append("id_document", id_document);
+
     fetch(`/api/v1/users`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         Accept: "application/json",
         "X-CSRF-Token": csrf,
       },
-      body: JSON.stringify({
-        first_name,
-        last_name,
-        email,
-        password,
-        password_confirmation,
-      }),
+      body: formData,
     })
       .then((resp) => resp.json())
       .then((data) => {
@@ -118,7 +126,14 @@ function SignUpForm(props) {
                 }
               ></Form.Control>
               <Form.Group>
-                <Form.File label="Upload ID" accept=".pdf, .jpeg, .png" />
+                <Form.Label>Upload ID</Form.Label>
+                <Form.File
+                  className="form_control"
+                  id="signup_form_control"
+                  required
+                  onChange={handleFileUpload}
+                  accept=".pdf, .jpeg, .png"
+                />
               </Form.Group>
             </Form.Group>
             <Row className="justify-content-center">

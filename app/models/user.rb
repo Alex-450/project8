@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    has_one_attached: :id
+    has_one_attached :id_document
 
     # user can have many help requests
     has_many :help_requests, dependent: :destroy
@@ -19,5 +19,6 @@ class User < ApplicationRecord
     validates :email, presence: true
     validates :password, presence: true
     validates :password_confirmation, presence: true
+    validates :id_document, presence: true
 
 end
