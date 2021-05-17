@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
-import UploadID from "./UploadID";
 import Home from "./Home.js";
 import Profile from "./Profile.js";
 import Navbar from "./Navbar";
@@ -22,10 +21,10 @@ function App() {
     localState = JSON.parse(localStorage.getItem("user"));
   }
   const [userData, setUserData] = useState(localState || null);
-  const value = useMemo(() => ({ userData, setUserData }), [
-    userData,
-    setUserData,
-  ]);
+  const value = useMemo(
+    () => ({ userData, setUserData }),
+    [userData, setUserData]
+  );
 
   // Check if user is authed
 
@@ -76,7 +75,6 @@ function App() {
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={LoginForm} />
           <AuthenticatedRoute exact path="/profile" component={Profile} />
-          <AuthenticatedRoute exact path="/uploadid" component={UploadID} />
         </UserContext.Provider>
       </Switch>
     </BrowserRouter>
