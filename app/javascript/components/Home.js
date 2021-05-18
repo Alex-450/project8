@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import GetLocationHook from "../hooks/GetLocationHook";
 import HelpRequestForm from "./HelpRequestForm";
 import HelpRequest from "./HelpRequest.js";
 import RequestMap from "./RequestMap";
 import MapError from "./MapError";
 import HelpRequestExplainer from "./HelpRequestExplainer";
 import GetHelpRequests from "../hooks/GetHelpRequestsHook";
+import RequestCounter from "./RequestCounter";
 
 function Home() {
   const [showOrForm, setShowOrForm] = useState("");
@@ -19,20 +19,7 @@ function Home() {
 
   return (
     <Container fluid className="home_container">
-      <Row>
-        {lat && long && (
-          <div>
-            <div className="request_counter">
-              <p className="request_counter_para">
-                {helpRequests.length != "0" && totalHelpRequests}
-              </p>
-            </div>
-            <div className="request_counter_explainer_container">
-              <p className="request_explainer">Current total requests</p>
-            </div>
-          </div>
-        )}
-      </Row>
+      {lat && long && <RequestCounter />}
       <Row>
         <Col>
           {lat && long ? (
