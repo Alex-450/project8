@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Row, Col } from "react-bootstrap";
 import { withRouter, NavLink } from "react-router-dom";
+// import { logout } from "./Services/authentication";
 
 function NavBar(props) {
   const handleLogOut = () => {
@@ -54,6 +55,7 @@ function NavBar(props) {
               <Nav className="ml-auto">
                 {userAuthed && (
                   <Nav.Link
+                    // href="/"
                     className="navbar_logout_button"
                     onClick={handleLogOut}
                   >
