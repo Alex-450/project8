@@ -4,7 +4,7 @@ import { Container, Jumbotron, Form, Row, Button, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 // import login from "./Services/authentication";
 
-function LoginForm(props) {
+function LogInForm(props) {
   const { userData, setUserData } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -109,4 +109,4 @@ function LoginForm(props) {
   );
 }
 
-export default withRouter(LoginForm);
+export default withRouter(LogInForm);

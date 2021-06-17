@@ -1,7 +1,7 @@
 import React, { Component, useState, useMemo } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
-import LoginForm from "./LoginForm";
+import LogInForm from "./LogInForm";
 import SignUpForm from "./SignUpForm";
 import Home from "./Home.js";
 import Profile from "./Profile.js";
@@ -73,7 +73,7 @@ function App() {
           <Route exact path="/welcome" component={LandingPage} />
           <AuthenticatedRoute exact path="/" component={Home} />
           <Route exact path="/signup" component={SignUpForm} />
-          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/login" component={LogInForm} />
           <AuthenticatedRoute exact path="/profile" component={Profile} />
         </UserContext.Provider>
       </Switch>
