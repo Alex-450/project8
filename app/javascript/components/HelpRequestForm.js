@@ -41,6 +41,9 @@ function HelpRequestForm(props) {
         user_id,
       }),
     }).then((response) => response.json());
+    setTitle("");
+    setDescription("");
+    setRequestType("");
   };
   return (
     <Container>
