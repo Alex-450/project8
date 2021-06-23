@@ -18,48 +18,54 @@ function Home() {
   const totalHelpRequests = helpRequests.length;
 
   return (
-    <Container fluid className="home_container">
-      {lat && long && <RequestCounter />}
-      <Row>
-        <Col>
-          {lat && long ? (
-            <RequestMap
-              showOrForm={showOrForm}
-              setShowOrForm={setShowOrForm}
-              setSelectedRequest={setSelectedRequest}
-              helpRequests={helpRequests}
-              lat={lat}
-              long={long}
-            />
-          ) : (
-            <MapError setLat={setLat} setLong={setLong} />
-          )}
-        </Col>
-        <Col className="help_request_container">
-          {(() => {
-            switch (showOrForm) {
-              case "help_request_show":
-                return (
-                  <HelpRequest
-                    showOrForm={showOrForm}
-                    setShowOrForm={setShowOrForm}
-                    selectedRequest={selectedRequest}
-                  />
-                );
-              case "help_request_form_show":
-                return <HelpRequestForm lat={lat} long={long} />;
-              default:
-                return (
-                  <HelpRequestExplainer
-                    setShowOrForm={setShowOrForm}
-                    helpRequests={helpRequests}
-                  />
-                );
-            }
-          })()}
-        </Col>
-      </Row>
-    </Container>
+    <div>
+      <Container fluid className="home_container">
+        {totalHelpRequests != "0" && <RequestCounter />}
+        <Row>
+          <Col>
+            {lat && long ? (
+              <RequestMap
+                showOrForm={showOrForm}
+                setShowOrForm={setShowOrForm}
+                setSelectedRequest={setSelectedRequest}
+                helpRequests={helpRequests}
+                lat={lat}
+                long={long}
+              />
+            ) : (
+              <MapError setLat={setLat} setLong={setLong} />
+            )}
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col className="help_request_container">
+            {(() => {
+              switch (showOrForm) {
+                case "help_request_show":
+                  return (
+                    <HelpRequest
+                      showOrForm={showOrForm}
+                      setShowOrForm={setShowOrForm}
+                      selectedRequest={selectedRequest}
+                    />
+                  );
+                case "help_request_form_show":
+                  return <HelpRequestForm lat={lat} long={long} />;
+                default:
+                  return (
+                    <HelpRequestExplainer
+                      setShowOrForm={setShowOrForm}
+                      helpRequests={helpRequests}
+                    />
+                  );
+              }
+            })()}
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 

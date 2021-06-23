@@ -44,7 +44,7 @@ function HelpRequestForm(props) {
   };
   return (
     <Container>
-      <h1>Submit Help Request</h1>
+      <h1 className="help_request_form_title">Submit Help Request</h1>
       <Form onSubmit={submitHelpRequest}>
         <Form.Group>
           <Form.Label>Help Request Title</Form.Label>

@@ -58,10 +58,11 @@
   background-color: #ec9999;
   padding: 10px;
   border-radius: 5px;
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .help_request_container {
+  padding: 20px;
   background-color: white;
   border-radius: 10px;
   height: 50vh;
@@ -112,6 +113,10 @@
 
 #mapid {
   height: 50vh;
+}
+
+.help_request_form_title {
+  text-align: center;
 }
 
 .help_request_form_button {
@@ -195,4 +200,10 @@
   display: inline-block;
   line-height: 50px;
   margin-left: 2px;
+}
+
+.request_explainer_container {
+  padding: 20px;
+  text-align: center;
+  border: 1px, black;
 }
