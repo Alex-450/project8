@@ -11,10 +11,10 @@ const getUserLocation = () => {
       return;
     }
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log("Latitide is: ", position.coords.latitude);
-      console.log("Longitude is: ", position.coords.longitude);
       setLat(position.coords.latitude);
       setLong(position.coords.longitude);
+      localStorage.setItem("latitiude", position.coords.latitude);
+      localStorage.setItem("longitude", position.coords.longitude);
     });
   }, []);
   return { lat, long, error };

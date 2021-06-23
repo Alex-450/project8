@@ -4,10 +4,10 @@ import { Button } from "react-bootstrap";
 function MapError(props) {
   function getLocation() {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log("Latitide is: ", position.coords.latitude);
-      console.log("Longitude is: ", position.coords.longitude);
       props.setLat(position.coords.latitude);
       props.setLong(position.coords.longitude);
+      localStorage.setItem("latitude", String(position.coords.latitude));
+      localStorage.setItem("longitude", String(position.coords.longitude));
     });
   }
   return (

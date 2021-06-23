@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import HelpRequestForm from "./HelpRequestForm";
 import HelpRequest from "./HelpRequest.js";
@@ -12,8 +12,8 @@ function Home() {
   const [showOrForm, setShowOrForm] = useState("");
   const [selectedRequest, setSelectedRequest] = useState("");
   const { helpRequests } = GetHelpRequests();
-  const [long, setLong] = useState("");
-  const [lat, setLat] = useState("");
+  const [long, setLong] = useState(localStorage.getItem("longitude") || "");
+  const [lat, setLat] = useState(localStorage.getItem("latitude") || "");
 
   const totalHelpRequests = helpRequests.length;
 
@@ -38,33 +38,35 @@ function Home() {
           </Col>
         </Row>
       </Container>
-      <Container>
-        <Row>
-          <Col className="help_request_container">
-            {(() => {
-              switch (showOrForm) {
-                case "help_request_show":
-                  return (
-                    <HelpRequest
-                      showOrForm={showOrForm}
-                      setShowOrForm={setShowOrForm}
-                      selectedRequest={selectedRequest}
-                    />
-                  );
-                case "help_request_form_show":
-                  return <HelpRequestForm lat={lat} long={long} />;
-                default:
-                  return (
-                    <HelpRequestExplainer
-                      setShowOrForm={setShowOrForm}
-                      helpRequests={helpRequests}
-                    />
-                  );
-              }
-            })()}
-          </Col>
-        </Row>
-      </Container>
+      {lat && long && (
+        <Container>
+          <Row>
+            <Col className="help_request_container">
+              {(() => {
+                switch (showOrForm) {
+                  case "help_request_show":
+                    return (
+                      <HelpRequest
+                        showOrForm={showOrForm}
+                        setShowOrForm={setShowOrForm}
+                        selectedRequest={selectedRequest}
+                      />
+                    );
+                  case "help_request_form_show":
+                    return <HelpRequestForm lat={lat} long={long} />;
+                  default:
+                    return (
+                      <HelpRequestExplainer
+                        setShowOrForm={setShowOrForm}
+                        helpRequests={helpRequests}
+                      />
+                    );
+                }
+              })()}
+            </Col>
+          </Row>
+        </Container>
+      )}
     </div>
   );
 }
