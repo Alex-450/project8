@@ -143,21 +143,21 @@
   background-color: #5f4040;
 }
 
-.request_counter {
-  background-color: #ec9999;
-  border-radius: 50%;
-  color: white;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  position: relative;
+.request_counter_button {
+  background-color: #5f4040;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-color: #5f4040;
 }
 
-.request_counter_para {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.request_counter_button:hover {
+  background-color: #5f4040;
+  border-color: #5f4040;
+}
+
+.request_counter_button:active {
+  background-color: #5f4040;
+  border-color: #5f4040;
 }
 
 .map_button {
@@ -184,6 +184,11 @@
   height: 50vh;
   background-color: #5f4040;
   position: relative;
+}
+
+.map_marker {
+  background-color: red !important;
+  color: red !important;
 }
 
 .help_request_container {

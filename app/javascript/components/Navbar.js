@@ -5,13 +5,10 @@ import { withRouter, NavLink } from "react-router-dom";
 function NavBar(props) {
   const handleLogOut = () => {
     if (confirm("Are you sure you want to log out?")) {
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
+      localStorage.clear();
       props.history.push("/");
-      console.log("user logged out");
     } else {
       // Do nothing
-      console.log("user did not log out");
     }
   };
 

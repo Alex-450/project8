@@ -1,6 +1,6 @@
 import React from "react";
 import GetHelpRequests from "../hooks/GetHelpRequestsHook";
-import { Container, Row } from "react-bootstrap";
+import { Container, Button, Badge } from "react-bootstrap";
 
 function RequestCounter() {
   const { helpRequests } = GetHelpRequests();
@@ -8,19 +8,14 @@ function RequestCounter() {
   const totalHelpRequests = helpRequests.length;
 
   return (
-    <Container>
-      <Row>
-        <div>
-          <div className="request_counter">
-            <p className="request_counter_para">
-              {totalHelpRequests != "0" && totalHelpRequests}
-            </p>
-          </div>
-          <div className="request_counter_explainer_container">
-            <p className="request_explainer">Current total requests</p>
-          </div>
-        </div>
-      </Row>
+    <Container fluid>
+      <Button className="request_counter_button" variant="primary">
+        Help Requests{" "}
+        <Badge variant="light">
+          {totalHelpRequests != "0" && totalHelpRequests}
+        </Badge>
+        <span className="sr-only"></span>
+      </Button>
     </Container>
   );
 }
