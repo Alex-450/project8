@@ -19,11 +19,20 @@ function RequestMap(props) {
     (helpRequests) => helpRequests.request_type_id == 2
   );
 
-  const iconMarkup = renderToStaticMarkup(
-    <i className=" fas fa-map-marker-alt fa-3x" />
+  const iconMarkupOne = renderToStaticMarkup(
+    <i id="map_marker_one" className="fas fa-map-marker-alt fa-2x"></i>
   );
-  const customMarkerIcon = divIcon({
-    html: iconMarkup,
+
+  const customMarkerIconOne = divIcon({
+    html: iconMarkupOne,
+  });
+
+  const iconMarkupTwo = renderToStaticMarkup(
+    <i id="map_marker_two" className="fas fa-map-marker-alt fa-2x"></i>
+  );
+
+  const customMarkerIconTwo = divIcon({
+    html: iconMarkupTwo,
   });
 
   return (
@@ -36,8 +45,7 @@ function RequestMap(props) {
 
         {materialHelpRequests.map((materialHelpRequest) => (
           <Marker
-            icon={customMarkerIcon}
-            className="map_marker"
+            icon={customMarkerIconOne}
             key={materialHelpRequest.id}
             position={[
               materialHelpRequest.latitude,
@@ -52,8 +60,7 @@ function RequestMap(props) {
 
         {oneTimeHelpRequests.map((oneTimeHelpRequest) => (
           <Marker
-            icon={customMarkerIcon}
-            className="map_marker"
+            icon={customMarkerIconTwo}
             key={oneTimeHelpRequest.id}
             position={[
               oneTimeHelpRequest.latitude,

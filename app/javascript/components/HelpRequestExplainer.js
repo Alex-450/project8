@@ -11,6 +11,10 @@ function HelpRequestExplainer(props) {
             Select 'Submit a request' to create a help request. This will be
             linked to your estimated current location.
           </p>
+          <i id="map_marker_two" className="fas fa-map-marker-alt fa-2x"></i>
+          <p>Material Help Requests</p>
+          <i id="map_marker_one" className="fas fa-map-marker-alt fa-2x"></i>
+          <p>One Time Help Requests</p>
           <Button
             className="big_button"
             onClick={() => props.setShowOrForm("help_request_form_show")}

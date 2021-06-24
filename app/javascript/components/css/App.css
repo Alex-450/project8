@@ -186,9 +186,12 @@
   position: relative;
 }
 
-.map_marker {
-  background-color: red !important;
-  color: red !important;
+#map_marker_one {
+  color: #5f4040;
+}
+
+#map_marker_two {
+  color: #ec9999;
 }
 
 .help_request_container {
@@ -211,4 +214,9 @@
   padding: 20px;
   text-align: center;
   border: 1px, black;
+}
+
+.leaflet-div-icon {
+  background: transparent;
+  border: none;
 }
