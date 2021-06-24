@@ -63,7 +63,7 @@ function SignUpForm(props) {
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 className="form_control"
-                id="signup_form_control"
+                id="first_name"
                 type="text"
                 placeholder="e.g. Alex"
                 name="first_name"
@@ -76,7 +76,7 @@ function SignUpForm(props) {
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 className="form_control"
-                id="signup_form_control"
+                id="last_name"
                 type="text"
                 placeholder="e.g. Smith"
                 name="last_name"
@@ -89,7 +89,7 @@ function SignUpForm(props) {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 className="form_control"
-                id="signup_form_control"
+                id="email"
                 type="email"
                 placeholder="e.g. alex.smith@email.com"
                 name="email"
@@ -102,7 +102,7 @@ function SignUpForm(props) {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 className="form_control"
-                id="signup_form_control"
+                id="password"
                 type="password"
                 name="password"
                 required
@@ -115,7 +115,7 @@ function SignUpForm(props) {
               <Form.Label>Confirm password</Form.Label>
               <Form.Control
                 className="form_control"
-                id="signup_form_control"
+                id="password_confirmation"
                 type="password"
                 name="password_confirmation"
                 required
@@ -129,7 +129,7 @@ function SignUpForm(props) {
                 <Form.Label>Upload ID</Form.Label>
                 <Form.File
                   className="form_control"
-                  id="signup_form_control"
+                  id="upload_id"
                   required
                   onChange={handleFileUpload}
                   accept=".pdf, .jpeg, .png"

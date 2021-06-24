@@ -59,7 +59,7 @@ function LogInForm(props) {
   return (
     <Container fluid className="form_container">
       <Jumbotron className="form_jumbotron">
-        <Row className="justify-content-center">
+        <Row className="justify-content-center m-3">
           <Form className="user_form" onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>Email</Form.Label>
