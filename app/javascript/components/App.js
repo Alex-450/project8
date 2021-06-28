@@ -56,7 +56,7 @@ function App() {
         ) : (
           <Redirect
             to={{
-              pathname: "/welcome",
+              pathname: "/",
               state: { from: props.location },
             }}
           />
@@ -70,8 +70,8 @@ function App() {
       {userAuthed && <Navbar />}
       <Switch>
         <UserContext.Provider value={value}>
-          <Route exact path="/welcome" component={LandingPage} />
-          <AuthenticatedRoute exact path="/" component={Home} />
+          <Route exact path="/" component={LandingPage} />
+          <AuthenticatedRoute exact path="/home" component={Home} />
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={LogInForm} />
           <AuthenticatedRoute exact path="/profile" component={Profile} />
