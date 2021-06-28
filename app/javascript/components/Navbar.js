@@ -26,7 +26,7 @@ function NavBar(props) {
                   <NavLink
                     className="navbar_nav_link"
                     activeClassName="navbar_nav_link_active"
-                    to="/"
+                    to="/home"
                     exact={true}
                   >
                     Home
@@ -39,6 +39,11 @@ function NavBar(props) {
                   {userAuthed && (
                     <NavLink className="navbar_nav_link" to="/profile">
                       Profile
+                    </NavLink>
+                  )}
+                  {userAuthed && (
+                    <NavLink className="navbar_nav_link" to="/myrequests">
+                      My Help Requests
                     </NavLink>
                   )}
                 </Nav>

@@ -13,7 +13,7 @@ function SignUpForm(props) {
 
   const handleLogin = (user) => {
     setUser(user);
-    if (user) return props.history.push("/");
+    if (user) return props.history.push("/home");
   };
 
   const handleFileUpload = (event) => {
