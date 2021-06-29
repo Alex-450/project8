@@ -68,7 +68,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {userAuthed && <Navbar />}
+      {localState && <Navbar />}
       <Switch>
         <UserContext.Provider value={value}>
           <Route exact path="/" component={LandingPage} />

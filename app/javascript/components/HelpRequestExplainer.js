@@ -6,7 +6,7 @@ function HelpRequestExplainer(props) {
     <Container className="request_explainer_container">
       <Row>
         <Col>
-          <p>Select a help request on the map to view details and volunteer</p>
+          <p>Select a help request on the map to view details and volunteer.</p>
           <p>
             Select 'Submit a request' to create a help request. This will be
             linked to your estimated current location.

@@ -19,6 +19,8 @@ function HelpRequestForm(props) {
   const user_id = userData.id;
   const fulfilled = false;
 
+  console.log(userData);
+
   const submitHelpRequest = (event) => {
     event.preventDefault();
 

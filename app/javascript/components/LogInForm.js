@@ -14,7 +14,7 @@ function LogInForm(props) {
 
   const handleLogin = (user) => {
     setUserData(user);
-    if (user) return setUserData(user), props.history.push("/home");
+    if (user) return setUserData(JSON.parse(user)), props.history.push("/home");
   };
 
   function handleErrors(response) {
@@ -65,7 +65,7 @@ function LogInForm(props) {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 className="form_control"
-                id="signup_form_control"
+                id="email"
                 type="email"
                 name="email"
                 required
@@ -79,7 +79,7 @@ function LogInForm(props) {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 className="form_control"
-                id="signup_form_control"
+                id="password"
                 type="password"
                 name="password"
                 required
