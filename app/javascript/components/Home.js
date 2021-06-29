@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import HelpRequestForm from "./HelpRequestForm";
 import HelpRequest from "./HelpRequest.js";

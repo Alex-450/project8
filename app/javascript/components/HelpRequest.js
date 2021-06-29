@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Button, Col, Row } from "react-bootstrap";
+import { Container, Button, Row } from "react-bootstrap";
 import ShowHelpRequest from "../hooks/ShowHelpRequestHook";
 
 function HelpRequest(props) {
