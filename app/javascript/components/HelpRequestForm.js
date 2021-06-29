@@ -17,6 +17,7 @@ function HelpRequestForm(props) {
   const latitude = props.lat.toString();
   const longitude = props.long.toString();
   const user_id = userData.id;
+  const fulfilled = false;
 
   const submitHelpRequest = (event) => {
     event.preventDefault();
@@ -39,6 +40,7 @@ function HelpRequestForm(props) {
         longitude,
         request_type_id,
         user_id,
+        fulfilled,
       }),
     }).then((response) => response.json());
     setTitle("");

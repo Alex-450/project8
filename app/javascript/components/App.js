@@ -5,6 +5,7 @@ import LogInForm from "./LogInForm";
 import SignUpForm from "./SignUpForm";
 import Home from "./Home.js";
 import Profile from "./Profile.js";
+import UserRequests from "./UserRequests";
 import Navbar from "./Navbar";
 import { UserContext } from "./Context/UserContext";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -75,6 +76,11 @@ function App() {
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={LogInForm} />
           <AuthenticatedRoute exact path="/profile" component={Profile} />
+          <AuthenticatedRoute
+            exact
+            path="/myrequests"
+            component={UserRequests}
+          />
         </UserContext.Provider>
       </Switch>
     </BrowserRouter>

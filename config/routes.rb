@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
       resources :users, only: [:create, :show]
-      resources :help_requests, only: [:create, :show, :index]
+      resources :help_requests, only: [:create, :show, :index, :destroy, :update]
       resources :request_types, only: [:show, :index]
       resources :tokens, only: [:create]
       get 'tokens/create'

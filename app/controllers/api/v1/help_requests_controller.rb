@@ -25,8 +25,24 @@ def index
     render json: HelpRequest.all, status: :ok
 end
 
+# DELETE /help_requests
+
+def destroy
+    help_request = HelpRequest.find(params[:id])
+    help_request.destroy
+    render json: { message: "Help Request Deleted"}
+end
+
+# UPDATE /help_requests
+
+def update
+    help_request = HelpRequest.find(params[:id])
+    help_request.update_attributes(help_request_params)
+    render json: { help_request: help_request } 
+end
+
 def help_request_params
-    params.permit(:title, :description, :latitude, :longitude, :request_type_id, :user_id)
+    params.permit(:title, :description, :latitude, :longitude, :request_type_id, :user_id, :fulfilled)
 end
 
 end

@@ -44,7 +44,7 @@
 
 .navbar_nav_link:active {
   color: white;
-  background-color: #ed8383;
+  background-color: #ec9999;
 }
 
 .navbar_logout_button {
@@ -78,7 +78,7 @@
 }
 
 .form_jumbotron {
-  background-color: #ed8383;
+  background-color: #ec9999;
   color: white;
   border-radius: 20px;
   border: none;
@@ -101,7 +101,7 @@
 }
 
 .button_arrow {
-  color: #ed8383;
+  color: #ec9999;
   background-color: white;
   padding: 5px;
   border-radius: 50%;
@@ -120,14 +120,14 @@
 }
 
 .help_request_form_button {
-  background-color: #ed8383;
+  background-color: #ec9999;
   color: white;
   border-radius: 5px;
   border: none;
 }
 
 .help_request_form_button:hover {
-  background-color: #e46767;
+  background-color: #ec9999;
   border: none;
 }
 
@@ -219,4 +219,17 @@
 .leaflet-div-icon {
   background: transparent;
   border: none;
+}
+
+.requests_table {
+  background-color: #f7d4d4;
+  border: #fbe9e9;
+}
+
+.table td {
+  border: #fbe9e9 solid 1px !important;
+}
+
+.table th {
+  border: #fbe9e9 solid 1px !important;
 }

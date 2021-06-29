@@ -14,7 +14,7 @@ function LogInForm(props) {
 
   const handleLogin = (user) => {
     setUserData(user);
-    if (user) return setUserData(user), props.history.push("/");
+    if (user) return setUserData(user), props.history.push("/home");
   };
 
   function handleErrors(response) {
