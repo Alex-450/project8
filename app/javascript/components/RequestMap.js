@@ -11,11 +11,15 @@ function RequestMap(props) {
     props.setShowOrForm("help_request_show");
   };
 
-  const materialHelpRequests = props.helpRequests.filter(
+  const unfulfilledHelpRequests = props.helpRequests.filter(
+    (helpRequests) => helpRequests.fulfilled == false
+  );
+
+  const materialHelpRequests = unfulfilledHelpRequests.filter(
     (helpRequests) => helpRequests.request_type_id == 1
   );
 
-  const oneTimeHelpRequests = props.helpRequests.filter(
+  const oneTimeHelpRequests = unfulfilledHelpRequests.filter(
     (helpRequests) => helpRequests.request_type_id == 2
   );
 

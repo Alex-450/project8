@@ -36,10 +36,8 @@ function UserRequests() {
                 <tr>
                   <th>Title</th>
                   <th>Description</th>
-                  <th>Request Type</th>
-                  <th>Fulfilled?</th>
+                  <th>Completed?</th>
                   <th>Delete</th>
-                  <th>Completed</th>
                 </tr>
               </thead>
               <tbody>
@@ -47,19 +45,6 @@ function UserRequests() {
                   <tr key={userHelpRequest.id}>
                     <td>{userHelpRequest.title}</td>
                     <td>{userHelpRequest.description}</td>
-                    <td>{userHelpRequest.request_type_id}</td>
-                    <td>{userHelpRequest.fulfilled.toString()}</td>
-
-                    <td>
-                      <Button
-                        className="form_button"
-                        onClick={() => {
-                          DeleteHelpRequest(userHelpRequest.id);
-                        }}
-                      >
-                        Delete
-                      </Button>
-                    </td>
                     {userHelpRequest.fulfilled == false && (
                       <td>
                         <Button
@@ -73,17 +58,18 @@ function UserRequests() {
                       </td>
                     )}
                     {userHelpRequest.fulfilled == true && (
-                      <td>
-                        <Button
-                          className="form_button"
-                          onClick={() => {
-                            HelpRequestFulfilled(userHelpRequest.id);
-                          }}
-                        >
-                          Unfulfilled
-                        </Button>
-                      </td>
+                      <td>Request Completed</td>
                     )}
+                    <td>
+                      <Button
+                        className="form_button"
+                        onClick={() => {
+                          DeleteHelpRequest(userHelpRequest.id);
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

@@ -5,15 +5,16 @@ import { Container, Button, Badge } from "react-bootstrap";
 function RequestCounter() {
   const { helpRequests } = GetHelpRequests();
 
-  const totalHelpRequests = helpRequests.length;
+  const unfulfilledHelpRequests = helpRequests.filter(
+    (helpRequests) => helpRequests.fulfilled == false
+  );
+
+  const totalHelpRequests = unfulfilledHelpRequests.length;
 
   return (
     <Container fluid>
       <Button className="request_counter_button" variant="primary">
-        Help Requests{" "}
-        <Badge variant="light">
-          {totalHelpRequests != "0" && totalHelpRequests}
-        </Badge>
+        Help Requests <Badge variant="light">{totalHelpRequests}</Badge>
         <span className="sr-only"></span>
       </Button>
     </Container>
