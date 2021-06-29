@@ -1,7 +1,5 @@
-import React, { useState, useEffect, setState } from "react";
-import { Map, Marker, Popup, TileLayer, Tooltip, Circle } from "react-leaflet";
-import { Modal, Button } from "react-bootstrap";
-import ReactDOM from "react-dom";
+import React from "react";
+import { Map, Marker, Popup, TileLayer, Tooltip } from "react-leaflet";
 import { renderToStaticMarkup } from "react-dom/server";
 import { divIcon } from "leaflet";
 
