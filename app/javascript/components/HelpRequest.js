@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Button, Row } from "react-bootstrap";
 import ShowHelpRequest from "../hooks/ShowHelpRequestHook";
+import volunteerHelpRequest from "../hooks/VolunteerHelpRequestHook";
+import { UserContext } from "./Context/UserContext";
 
 function HelpRequest(props) {
   const { helpRequest } = ShowHelpRequest(props.selectedRequest);
+  const { userData } = useContext(UserContext);
+  const user_id = userData.id;
+
   return (
     <Container>
       <div className="help_request_container">
@@ -20,7 +25,12 @@ function HelpRequest(props) {
           <p>{helpRequest.description}</p>
         </Row>
         <Row>
-          <Button className="help_request_form_button">
+          <Button
+            className="help_request_form_button"
+            onClick={() => {
+              volunteerHelpRequest(user_id, helpRequest.id);
+            }}
+          >
             Volunteer <span className="button_arrow">→</span>
           </Button>
         </Row>

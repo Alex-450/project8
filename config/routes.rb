@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :help_requests, only: [:create, :show, :index, :destroy, :update]
       resources :request_types, only: [:show, :index]
       resources :tokens, only: [:create]
+      resources :volunteer_connections, only: [:create, :show, :index]
       get 'tokens/create'
       post "/login", to: "auth#login"
       get "/auto_login", to: "auth#auto_login"
