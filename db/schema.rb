@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_144838) do
+ActiveRecord::Schema.define(version: 2021_06_30_182347) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,7 +62,18 @@ ActiveRecord::Schema.define(version: 2021_05_08_144838) do
     t.string "password_digest"
   end
 
+  create_table "volunteer_connections", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "help_request_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["help_request_id"], name: "index_volunteer_connections_on_help_request_id"
+    t.index ["user_id"], name: "index_volunteer_connections_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "help_requests", "request_types"
   add_foreign_key "help_requests", "users"
+  add_foreign_key "volunteer_connections", "help_requests"
+  add_foreign_key "volunteer_connections", "users"
 end

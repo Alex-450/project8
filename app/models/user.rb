@@ -13,6 +13,10 @@ class User < ApplicationRecord
     # user can have many help requests
     has_many :help_requests, dependent: :destroy
 
+    # user can volunteer for many help requests
+
+    has_many :help_requests, through: :volunteer_connections
+
     # validation for all fields
     validates :first_name, presence: true
     validates :last_name, presence: true
