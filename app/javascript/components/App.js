@@ -68,10 +68,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      {localState && <Navbar />}
+      {userAuthed && <Navbar />}
       <Switch>
         <UserContext.Provider value={value}>
           <Route exact path="/" component={LandingPage} />
+          {userAuthed && <Redirect from="/" to="/home" />}
           <AuthenticatedRoute exact path="/home" component={Home} />
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={LogInForm} />
