@@ -53,12 +53,12 @@ function UserRequests() {
                             HelpRequestFulfilled(userHelpRequest.id);
                           }}
                         >
-                          Fulfilled
+                          Mark as completed →
                         </Button>
                       </td>
                     )}
                     {userHelpRequest.fulfilled == true && (
-                      <td>Request Completed</td>
+                      <td className="text-center">✔️</td>
                     )}
                     <td>
                       <Button
@@ -67,7 +67,7 @@ function UserRequests() {
                           DeleteHelpRequest(userHelpRequest.id);
                         }}
                       >
-                        Delete
+                        Delete →
                       </Button>
                     </td>
                   </tr>
