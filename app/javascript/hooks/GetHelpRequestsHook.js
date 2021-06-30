@@ -6,7 +6,7 @@ const GetHelpRequests = () => {
 
   setTimeout(() => {
     setTimeInterval(timeInterval + 1);
-  }, 3000);
+  }, 5000);
 
   useEffect(() => {
     fetch("api/v1/help_requests")
